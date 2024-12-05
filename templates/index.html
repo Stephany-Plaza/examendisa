@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Automático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .pregunta {
+            margin-bottom: 15px;
+        }
+        .opciones {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Examen Automático</h1>
+    <div>
+        {% for pregunta in examen %}
+            <div class="pregunta">
+                <p><strong>{{ pregunta['pregunta'] }}</strong></p>
+                {% if pregunta['opciones'] %}
+                    <div class="opciones">
+                        {% for opcion in pregunta['opciones'] %}
+                            <p>{{ opcion }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
